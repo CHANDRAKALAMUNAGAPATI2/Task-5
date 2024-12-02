@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>E-Commerce Platform</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header style="background-color: #2C3E50; padding: 20px 0; text-align: center;">
+  <h1 style="color: white; font-size: 36px; font-weight: bold;">Electronic Devices Store</h1>
+  <nav class="nav" style="margin-top: 10px;">
+    <button onclick="filterByCategory('all')" style="background-color: #3498DB; color: white; padding: 10px 20px; margin: 5px; border: none; border-radius: 5px; cursor: pointer; font-size: 14px;">All</button>
+    <button onclick="filterByCategory('smartphones')" style="background-color: #E74C3C; color: white; padding: 10px 20px; margin: 5px; border: none; border-radius: 5px; cursor: pointer; font-size: 14px;">Smartphones</button>
+    <button onclick="filterByCategory('laptops')" style="background-color: #2ECC71; color: white; padding: 10px 20px; margin: 5px; border: none; border-radius: 5px; cursor: pointer; font-size: 14px;">Laptops</button>
+    <button onclick="filterByCategory('tablets')" style="background-color: #F39C12; color: white; padding: 10px 20px; margin: 5px; border: none; border-radius: 5px; cursor: pointer; font-size: 14px;">Tablets</button>
+    <button onclick="filterByCategory('accessories')" style="background-color: #9B59B6; color: white; padding: 10px 20px; margin: 5px; border: none; border-radius: 5px; cursor: pointer; font-size: 14px;">Accessories</button>
+  </nav>
+</header>
+<main id="main-content" class="main-content">
+  <!-- Aside: Filters Section -->
+  <aside id="filter-sidebar" class="filter-sidebar">
+    <h3>Filter Products</h3>
+    <label for="price-range">Price Range:</label>
+    <input type="range" id="price-range" min="0" max="3000" value="3000" oninput="updatePriceValue(this.value)">
+    <span id="price-value">$3000</span>
+
+    <h4>Sort By</h4>
+    <select id="sort-filter" onchange="sortProducts(this.value)">
+      <option value="none">None</option>
+      <option value="low-to-high">Price: Low to High</option>
+      <option value="high-to-low">Price: High to Low</option>
+    </select>
+
+    <h4 id="rating-label">Ratings</h4>
+    <select id="rating-filter" class="rating-select" onchange="applyFilters()">
+      <option value="all">All</option>
+      <option value="5">5 stars</option>
+      <option value="4">4 stars</option>
+      <option value="3">3 stars</option>
+      <option value="2">2 stars</option>
+      <option value="1">1 star</option>
+    </select>
+  </aside>
+
+  <!-- Main Content Section (Products and Cart) -->
+  <div id="product-list-container" class="product-list-container">
+    <!-- Main Product List -->
+    <section id="product-list" class="product-list">
+      <!-- Product Cards will be dynamically loaded here -->
+    </section>
+
+    <!-- Cart Section -->
+    <aside id="cart" class="cart">
+      <h3>Shopping Cart</h3>
+      <ul id="cart-items"></ul>
+      <p>Total: <span id="total-price">$0</span></p>
+    </aside>
+  </div>
+</main>
+
+<footer>
+  <p>&copy; 2024 Electronic Devices Store</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
